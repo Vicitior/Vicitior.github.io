@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/img/2333.png">
-  <title>实验室暑期考核</title>
+  <title>并不是0基础的python爬虫教学（一）</title>
   
     
       <meta 
         property="og:title" 
-        content="实验室暑期考核">
+        content="并不是0基础的python爬虫教学（一）">
     
     
       <meta 
         property="og:url" 
-        content="https://vicitior.github.io/document/9005.html">
+        content="https://vicitior.github.io/posts/64752/index.html">
     
     
       <meta 
@@ -38,7 +38,7 @@
     
       <meta 
         property="og:img" 
-        content="算法考核">
+        content="这是一段简介">
     
     
       <meta 
@@ -46,7 +46,7 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2021-08-16">
+        content="2021-08-10">
       <meta 
         property="og:article:modified_time" 
         content="2021-08-16">
@@ -57,11 +57,11 @@
         
           <meta 
             property="og:article:tag" 
-            content="算法">
+            content="python">
         
           <meta 
             property="og:article:tag" 
-            content="实验室">
+            content="教程">
         
       
     
@@ -304,36 +304,36 @@
       data-src="/img/python.png"
       srcset="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%20300%20300&#39;%3E%3C/svg%3E"
       class="image lozad"
-      alt="实验室暑期考核 thumbnail">
+      alt="并不是0基础的python爬虫教学（一） thumbnail">
   </div>
 
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      实验室暑期考核
+      并不是0基础的python爬虫教学（一）
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-08-16T11:27:09.317Z">
+    <time datetime="2021-08-10T07:34:21.008Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2021-08-16</span>
+      <span>2021-08-10</span>
     </time>
     
       <span class="dot"></span>
       
         <a 
-          href="/categories/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E7%9B%B8%E5%85%B3/" 
+          href="/categories/python%E7%88%AC%E8%99%AB%E6%95%99%E5%AD%A6/" 
           class="post-meta-link">
-          实验室相关
+          python爬虫教学
         </a>
       
     
     
       <span class="dot"></span>
-      <span>704 字</span>
+      <span>803 字</span>
     
   </div>
   
@@ -348,18 +348,18 @@
         
           
           <a 
-            href="/tags/%E7%AE%97%E6%B3%95/" 
+            href="/tags/python/" 
             class="post-meta-link">
-            算法
+            python
           </a>
         
           
             <span class="dot"></span>
           
           <a 
-            href="/tags/%E5%AE%9E%E9%AA%8C%E5%AE%A4/" 
+            href="/tags/%E6%95%99%E7%A8%8B/" 
             class="post-meta-link">
-            实验室
+            教程
           </a>
         
       </div>
@@ -369,126 +369,58 @@
   <div 
     id="section" 
     class="post-content">
-    <h2 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h2><p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/1.png" alt="第一题原题" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/1.png" class="lozad post-image"></p>
-<p>通过分析题意，我们不难看出，这是一个十分经典的算法，经典到上学期的一个重点就是对二叉树进行一个前中后序的遍历。</p>
-<p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/2.png" alt="课本上的树" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/2.png" class="lozad post-image"></p>
-<p>根据我们的知识，无非就是运用递归算法，一直寻找左子树，直达寻找到叶子节点，将它存放到栈中，再把它的父节点存放到栈中，之后再寻找父节点右子树的左子树。</p>
-<p>代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
-public:
-  vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123;
-        vector&lt;int&gt; ret;
-        stack&lt;TreeNode*&gt; toTraversal;
-        while(root!&#x3D;NULL || !toTraversal.empty())&#123;
-            while(root !&#x3D; NULL)&#123;
-               toTraversal.push(root);
-               root &#x3D; root-&gt;left;
-            &#125;
-            root &#x3D; toTraversal.top();
-            toTraversal.pop();
-            ret.push_back(root-&gt;val);
-            root &#x3D; root-&gt;right;
-        &#125;
-        return ret;
-  &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <h3 id="特别注意，本次教学是已经默认你已经拥有一定的python语法基础和HTML知识的前提下进行的！！！"><a href="#特别注意，本次教学是已经默认你已经拥有一定的python语法基础和HTML知识的前提下进行的！！！" class="headerlink" title="特别注意，本次教学是已经默认你已经拥有一定的python语法基础和HTML知识的前提下进行的！！！"></a>特别注意，本次教学是已经默认你已经拥有一定的python语法基础和HTML知识的前提下进行的！！！</h3><p>首先，我默认各位已经安装了pycharm环境，如果安装了anaconda更好，没有安装问题也不大，可以点击<a href="%5B(17%E6%9D%A1%E6%B6%88%E6%81%AF">这里</a> Anaconda与Pycharm详细安装配置_sunshine_hanxx的博客-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/sunshine_hanxx/article/details/90760417?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=pycharmanaconda&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-.ecpm_v1_rank_v29&amp;spm=1018.2226.3001.4187))%E6%9D%A5%E8%BF%9B%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%EF%BC%8C%E7%8E%B0%E5%9C%A8%E8%AE%A9%E6%88%91%E4%BB%AC%E5%86%99%E5%87%BA%E4%BD%A0%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%88%AC%E8%99%AB%E7%A8%8B%E5%BA%8F%E5%90%A7%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81">https://blog.csdn.net/sunshine_hanxx/article/details/90760417?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=pycharmanaconda&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-.ecpm_v1_rank_v29&amp;spm=1018.2226.3001.4187))来进行环境的安装，现在让我们写出你人生中第一个爬虫程序吧！！！！</a></p>
+<h3 id="要爬的网站豆瓣TOP250"><a href="#要爬的网站豆瓣TOP250" class="headerlink" title="要爬的网站豆瓣TOP250"></a>要爬的网站<a target="_blank" rel="noopener" href="https://movie.douban.com/top250">豆瓣TOP250</a></h3><p>我们这次要爬的就是这么一个界面</p>
+<p><img src="/posts/64752/9.png" alt="豆瓣TOP250第一页界面" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/posts/64752/9.png" class="lozad post-image"></p>
+<p>准确来说是这个界面的HTML代码，可以打开F12进行查看</p>
+<p><img src="/posts/64752/10.png" alt="网页代码查看" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/posts/64752/10.png" class="lozad post-image"></p>
+<p>现在，我们打开pycharm，新建文件（我相信各位都会），导入requests包，如果用的anaconda的同学会发现已经自带了，如果没有的话可以自行搜索如何去安装,并在url中储存豆瓣TOP250的链接</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 
-<p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/3.png" alt="通过截图" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/3.png" class="lozad post-image"></p>
-<h2 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h2><p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/4.png" alt="第二天原题" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/4.png" class="lozad post-image"></p>
-<p>第二题其实本来做过一个类似的，所以我直接用之前的递归思路写：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
-public:
-    int climbStairs(int n) &#123;
-        int a;
-        if (n &#x3D;&#x3D; 1)
-            return 1;
-        else if (n &#x3D;&#x3D; 2)
-            return 2;
-        else &#123;
-            vector&lt;int&gt; a(n + 5, 0);
-            a[1] &#x3D; 1;
-            a[2] &#x3D; 2;
-            int i;
-            for (i &#x3D; 3;i &lt;&#x3D; n;i++)
-            &#123;
-                a[i] &#x3D; a[i - 1] + a[i - 2];
-            &#125;
-            return a[n];
-        &#125;
-    &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+url <span class="token operator">=</span> <span class="token string">'https://movie.douban.com/top250'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>但你会神奇的发现它超时了</p>
-<p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/5.png" alt="超时" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/5.png" class="lozad post-image"></p>
-<p>所以总结一下，如果直接用递归，时间复杂度回收O(n2)，我们需要换一下，如果你用递归打一下表，会发现它每一阶都是前面两阶的和，这样就可以使用动态规划的方法，使时间复杂度降到O(n)了</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
-public:
-    int climbStairs(int n) &#123;
-        int a;
-        if (n &#x3D;&#x3D; 1)
-            return 1;
-        else if (n &#x3D;&#x3D; 2)
-            return 2;
-        else &#123;
-            vector&lt;int&gt; a(n + 5, 0);
-            a[1] &#x3D; 1;
-            a[2] &#x3D; 2;
-            int i;
-            for (i &#x3D; 3;i &lt;&#x3D; n;i++)
-            &#123;
-                a[i] &#x3D; a[i - 1] + a[i - 2];
-            &#125;
-            return a[n];
-        &#125;
-    &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后，我们在返回页面，检查网页源代码，发现它是已GET方式进行传输的</p>
+<p><img src="/posts/64752/11.png" alt="截图" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/posts/64752/11.png" class="lozad post-image"></p>
+<p>这时候，我们就可以通过resquest来获取网页源代码</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
 
-<p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/6.png" alt="通过" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/6.png" class="lozad post-image"></p>
-<h2 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h2><p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/7.png" alt="原题" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/7.png" class="lozad post-image"></p>
-<p>通过本题，不难发现其实是一个字符串识别的问题，并不是特别复杂，只要考虑清楚位置问题用switch就能很好的解决</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
-public:
-    int romanToInt(string s) &#123;
-       int count &#x3D; 0, t &#x3D; 0, flag &#x3D; 0;	&#x2F;&#x2F;分别用于计数和标记
-       int i;
-       for (i &#x3D; s.length();i &gt;&#x3D; 0;i--)
-       &#123;
-        switch(s[i]) &#123;		&#x2F;&#x2F;获得其中的单个字符
-        	case &#39;I&#39;: 
-        		t &#x3D; 1;
-        		if(flag &#x3D;&#x3D; 1) &#123;		&#x2F;&#x2F;判断是否在V的左面，如果在，则需减去
-        			t &#x3D; -t; 	
-        			flag &#x3D; 0;
-        		&#125;
-        		break;
-        	case &#39;V&#39;: flag &#x3D; 1; t &#x3D; 5; break;
-        	case &#39;X&#39;: 
-        		t &#x3D; 10;
-        		if(flag &#x3D;&#x3D; 2) &#123;
-        			t &#x3D; -t;
-        			flag &#x3D; 0;
-        		&#125;
-        		flag &#x3D; 1; 
-        		break;
-        	case &#39;L&#39;: flag &#x3D; 2; t &#x3D; 50; break;
-        	case &#39;C&#39;: 
-        		t &#x3D; 100;
-        		if(flag &#x3D;&#x3D; 3) &#123;
-        			t &#x3D; -t;
-        			flag &#x3D; 0;
-        		&#125;
-        		flag &#x3D; 2; 
-        		break;
-        	case &#39;D&#39;: flag &#x3D; 3; t &#x3D; 500; break;
-        	case &#39;M&#39;: flag &#x3D; 3; t &#x3D; 1000; break;
-        	&#125;
-        	count +&#x3D; t;
-        &#125;
-       return count;
-    &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+url <span class="token operator">=</span> <span class="token string">'https://movie.douban.com/top250'</span>
 
-<p><img src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/8.png" alt="通过图片" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/2021/08/16/%E5%AE%9E%E9%AA%8C%E5%AE%A4%E6%9A%91%E6%9C%9F%E8%80%83%E6%A0%B8/8.png" class="lozad post-image">](55566/8.png)</p>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url <span class="token operator">=</span> url<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这时候的response还不能被我们所看懂，需要转换成text才可以，之后再输出</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+
+url <span class="token operator">=</span> <span class="token string">'https://movie.douban.com/top250'</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url <span class="token operator">=</span> url<span class="token punctuation">)</span>
+html <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+<span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这时候查看输出</p>
+<p><img src="/posts/64752/12.png" alt="输出" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/posts/64752/12.png" class="lozad post-image"></p>
+<p>这时候你会发现，它什么也没有输出，这时候，我们就要了解一下resquest方法了，如果可以了解它，各位就能破解很多一部分反爬问题了，它不仅需要网页链接，还需要模拟计算机登录的参数以及GET所需的参数（本文暂不涉及），而我们该如何模拟计算机登陆呢？</p>
+<p>这时候我们需要再次打开浏览器检查代码</p>
+<p><img src="/posts/64752/13.png" alt="检测代码" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/posts/64752/13.png" class="lozad post-image"></p>
+<p>发现右下角有一个User-Agent，这个就是我们每次登录网页时计算机所提交的参数，用于证明我们是人为使用浏览器登陆的，如果不加，网页会很快识别我们为爬虫将我们拦截，所以我们要以字典的方式将它写入resquest中</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+
+url <span class="token operator">=</span> <span class="token string">'https://movie.douban.com/top250'</span>
+head <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla / 5.0(Windows NT 10.0;    Win64;    x64) AppleWebKit / 537.36(KHTML, like   Gecko) Chrome / 92.0    .4515    .107    Safari / 537.36"</span><span class="token punctuation">&#125;</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url <span class="token operator">=</span> url<span class="token punctuation">,</span> headers <span class="token operator">=</span> head<span class="token punctuation">)</span>
+html <span class="token operator">=</span> response<span class="token punctuation">.</span>text
+<span class="token keyword">print</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>再一次运行程序</p>
+<p><img src="/posts/64752/14.png" alt="运行结果" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/posts/64752/14.png" class="lozad post-image"></p>
+<p>发现这次成功返回我们想要的第一页网页源代码了。</p>
+<p>如果各位成功了，那么恭喜，各位的第一个爬虫程序已经成功面世了。</p>
+<h2 id="一个各位可能遇见的问题"><a href="#一个各位可能遇见的问题" class="headerlink" title="一个各位可能遇见的问题"></a>一个各位可能遇见的问题</h2><p>如果各位程序没有错误，但又报以下的错误</p>
+<p><img src="/posts/64752/15.png" alt="报错" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/posts/64752/15.png" class="lozad post-image"></p>
+<p>ValueError: check_hostname requires server_hostname</p>
+<p>那么可各位在运行时开着网络代理（俗称梯子），只要关闭代理，就可以正常使用了</p>
+<p>如果各位遇到问题，可以通过加我微信或者B站私信问我，我可以解决的一定会尽力帮助大家的。</p>
 
   </div>
   <div>
@@ -508,8 +440,8 @@ public:
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://vicitior.github.io/document/9005.html">
-            https://vicitior.github.io/document/9005.html
+            href="https://vicitior.github.io/posts/64752/">
+            https://vicitior.github.io/posts/64752/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -519,20 +451,20 @@ public:
 </article>
 <div class="nav">
   
-  
-    <div class="nav-item-next">
+    <div class="nav-item-prev">
       <a 
-        href="/document/undefined.html" 
+        href="/posts/85335216/" 
         class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
-          <div class="nav-label">下一篇</div>
+          <div class="nav-label">上一篇</div>
           
-            <div class="nav-title">并不是0基础的python爬虫教学 </div>
+            <div class="nav-title">实验室暑期考核 </div>
           
         </div>
-        <i class="iconfont icon-right nav-next-icon"></i>
       </a>
     </div>
+  
   
 </div>
 
@@ -579,7 +511,7 @@ public:
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98"><span class="toc-text">第二题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98"><span class="toc-text">第三题</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%88%AB%E6%B3%A8%E6%84%8F%EF%BC%8C%E6%9C%AC%E6%AC%A1%E6%95%99%E5%AD%A6%E6%98%AF%E5%B7%B2%E7%BB%8F%E9%BB%98%E8%AE%A4%E4%BD%A0%E5%B7%B2%E7%BB%8F%E6%8B%A5%E6%9C%89%E4%B8%80%E5%AE%9A%E7%9A%84python%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E5%92%8CHTML%E7%9F%A5%E8%AF%86%E7%9A%84%E5%89%8D%E6%8F%90%E4%B8%8B%E8%BF%9B%E8%A1%8C%E7%9A%84%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-text">特别注意，本次教学是已经默认你已经拥有一定的python语法基础和HTML知识的前提下进行的！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E7%88%AC%E7%9A%84%E7%BD%91%E7%AB%99%E8%B1%86%E7%93%A3TOP250"><span class="toc-text">要爬的网站豆瓣TOP250</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%90%84%E4%BD%8D%E5%8F%AF%E8%83%BD%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">一个各位可能遇见的问题</span></a>
 </div></main>
             <aside class="left-column">
               
@@ -630,8 +562,8 @@ public:
       </div>
     
       <div class="author-card-society-icon">
-        <a target="_blank" rel="noopener" href="https://github.com/Vicitior">
-          <i class="iconfont /img/GitHub.png society-icon"></i>
+        <a target="_blank" rel="noopener" href="https://z3.ax1x.com/2021/08/16/ffcFx0.jpg">
+          <i class="iconfont icon-wechat society-icon"></i>
         </a>
       </div>
     
@@ -649,7 +581,7 @@ public:
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98"><span class="toc-text">第二题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98"><span class="toc-text">第三题</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%88%AB%E6%B3%A8%E6%84%8F%EF%BC%8C%E6%9C%AC%E6%AC%A1%E6%95%99%E5%AD%A6%E6%98%AF%E5%B7%B2%E7%BB%8F%E9%BB%98%E8%AE%A4%E4%BD%A0%E5%B7%B2%E7%BB%8F%E6%8B%A5%E6%9C%89%E4%B8%80%E5%AE%9A%E7%9A%84python%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E5%92%8CHTML%E7%9F%A5%E8%AF%86%E7%9A%84%E5%89%8D%E6%8F%90%E4%B8%8B%E8%BF%9B%E8%A1%8C%E7%9A%84%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-text">特别注意，本次教学是已经默认你已经拥有一定的python语法基础和HTML知识的前提下进行的！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E7%88%AC%E7%9A%84%E7%BD%91%E7%AB%99%E8%B1%86%E7%93%A3TOP250"><span class="toc-text">要爬的网站豆瓣TOP250</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%90%84%E4%BD%8D%E5%8F%AF%E8%83%BD%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">一个各位可能遇见的问题</span></a>
       </div>
     </article>
   
@@ -734,7 +666,7 @@ public:
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%A2%98"><span class="toc-text">第一题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%A2%98"><span class="toc-text">第二题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%A2%98"><span class="toc-text">第三题</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%88%AB%E6%B3%A8%E6%84%8F%EF%BC%8C%E6%9C%AC%E6%AC%A1%E6%95%99%E5%AD%A6%E6%98%AF%E5%B7%B2%E7%BB%8F%E9%BB%98%E8%AE%A4%E4%BD%A0%E5%B7%B2%E7%BB%8F%E6%8B%A5%E6%9C%89%E4%B8%80%E5%AE%9A%E7%9A%84python%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80%E5%92%8CHTML%E7%9F%A5%E8%AF%86%E7%9A%84%E5%89%8D%E6%8F%90%E4%B8%8B%E8%BF%9B%E8%A1%8C%E7%9A%84%EF%BC%81%EF%BC%81%EF%BC%81"><span class="toc-text">特别注意，本次教学是已经默认你已经拥有一定的python语法基础和HTML知识的前提下进行的！！！</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E7%88%AC%E7%9A%84%E7%BD%91%E7%AB%99%E8%B1%86%E7%93%A3TOP250"><span class="toc-text">要爬的网站豆瓣TOP250</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%90%84%E4%BD%8D%E5%8F%AF%E8%83%BD%E9%81%87%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">一个各位可能遇见的问题</span></a>
     </article>
   
   
@@ -750,12 +682,12 @@ public:
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-16</div>
-        <a href="/document/9005.html"><div class="recent-posts-item-content">实验室暑期考核</div></a>
+        <a href="/posts/85335216/"><div class="recent-posts-item-content">实验室暑期考核</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-10</div>
-        <a href="/document/undefined.html"><div class="recent-posts-item-content">并不是0基础的python爬虫教学</div></a>
+        <a href="/posts/64752/"><div class="recent-posts-item-content">并不是0基础的python爬虫教学（一）</div></a>
       </div>
     
   </div>
@@ -913,6 +845,10 @@ public:
       </script>
      
     
+    
+      <script>
+        setTimeout(() => {localSearch("search.json")}, 0)
+      </script>
     
   </body>
 </html>
