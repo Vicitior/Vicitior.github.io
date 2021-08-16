@@ -64,6 +64,37 @@
   </script>
   
     
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+      
+    
   
   <script>
     // control reverse button
@@ -103,15 +134,18 @@
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else if(reverseDarkList[setting]) {
         document.documentElement.setAttribute('data-user-color-scheme', setting);
         document.getElementById('theme-color').content = themeColor[setting];
         document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
       } else {
         document.documentElement.removeAttribute('data-user-color-scheme');
         localStorage.removeItem('user-color-scheme');
         document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
         document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
       }
     };
     setDarkmode();
@@ -197,14 +231,6 @@
       </a>
     
       <a 
-        href="/about" 
-        class="navbar-menu-item">
-        
-          关于
-        
-      </a>
-    
-      <a 
         href="/links" 
         class="navbar-menu-item">
         
@@ -258,9 +284,9 @@
           <div class="archive-timeline-post-date">2021-08-10</div>
           <div class="archive-timeline-post-content">
             <a 
-              href="/document/"
+              href="/document/undefined.html"
               class="archive-timeline-post-item">
-              Hello World
+              并不是0基础的python爬虫教学
             </a>
           </div>
         </div>
@@ -303,6 +329,28 @@
   </a>
 </div>
 
+  <div class="author-card-society">
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://github.com/Vicitior">
+          <i class="iconfont icon-github society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/38721650">
+          <i class="iconfont icon-bilibili society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://github.com/Vicitior">
+          <i class="iconfont /img/GitHub.png society-icon"></i>
+        </a>
+      </div>
+    
+  </div>
+
               </div>
                <div class="sticky-tablet">
   
@@ -318,9 +366,9 @@
   </div>
   <div class="categories-list">
     
-      <a href="/categories/Hi/">
+      <a href="/categories/python%E7%88%AC%E8%99%AB%E6%95%99%E5%AD%A6/">
         <div class="categories-list-item">
-          Hi
+          python爬虫教学
           <span class="categories-list-item-badge">1</span>
         </div>
       </a>
@@ -340,15 +388,15 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/2hello/" 
-        title="2hello">
-        <div class="tags-list-item">2hello</div>
+        href="/tags/%E6%95%99%E7%A8%8B/" 
+        title="教程">
+        <div class="tags-list-item">教程</div>
       </a>
     
       <a 
-        href="/tags/hello/" 
-        title="hello">
-        <div class="tags-list-item">hello</div>
+        href="/tags/python/" 
+        title="python">
+        <div class="tags-list-item">python</div>
       </a>
     
   </div>
@@ -405,7 +453,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-10</div>
-        <a href="/document/"><div class="recent-posts-item-content">Hello World</div></a>
+        <a href="/document/undefined.html"><div class="recent-posts-item-content">并不是0基础的python爬虫教学</div></a>
       </div>
     
   </div>
